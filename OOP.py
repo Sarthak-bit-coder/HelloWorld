@@ -144,7 +144,7 @@ class Cube(Rectangle):
         return self.length * self.width * self.height
 
 
-# Prevent a user from creatingan object of that class
+# Prevent a user from creating an object of that class
 # + compels a user to override abstract methods in a child class
 
 # abstract class = a class that contains one or more abstract methods

@@ -114,17 +114,3 @@ def age(data): return data[1] >= 18
 
 # applies age function to each item in friends list
 drinking_buddies = list(filter(age, friends))
-
-# reduce function = applies a function to an iterable and reduces it to a single cumulative value
-#                   performs function on first two elements and then continues to apply it to the result and the next element
-
-
-letters = ["H", "E", "L", "L", "O"]
-# combines all letters into a single word
-word = functools.reduce(lambda x, y: x + y, letters)
-print(word)  # Output: HELLO
-
-factorial = [5, 4, 3, 2, 1]
-# calculates the factorial of 5
-result = functools.reduce(lambda x, y: x * y, factorial)
-print(result)  # Output: 120

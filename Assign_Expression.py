@@ -52,17 +52,3 @@ def divisor(x):
 
 divide = divisor(2)
 print(divide(10))  # Output: 5.0
-
-# lambda functions = functions written in 1 line using lambda keyword
-#                    accepts any number of arguments, but only has one expression
-
-# lambda parameters: expression
-
-
-def double(x): return x * 2
-def multiply(x, y): return x * y
-def add(x, y, z): return x + y + z
-def full_name(first, last): return first + " " + last
-
-
-def age(age): return True if age >= 18 else False

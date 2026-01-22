@@ -140,3 +140,19 @@ def check_temp(value):
 
 desc_cities = {key: ("HOT" if value >= 70 else "WARM" if value >=
                      40 else "COLD") for (key, value) in cities_in_F.items()}
+
+# zip function = combine two lists into a dictionary
+###############################################################
+
+usernames = ["Sarthak", "John", "Alice"]
+passwords = ("pass123", "qwerty", "alice2024")
+login_date = ["2024-01-01", "2024-02-15", "2024-03-10"]
+
+users = dict(zip(usernames, passwords))
+
+for key, value in users.items():
+    print(key + " : " + value)
+
+user = dict(zip(usernames, passwords, login_date))
+for i in user:
+    print(i)

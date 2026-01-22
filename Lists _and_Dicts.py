@@ -88,3 +88,55 @@ print(capitals.items())  # prints all the key:value pairs in the dictionary
 
 for key, value in capitals.items():
     print(key, value)
+
+
+# list comprehension = a shorter syntax to create a new list based on the values of an existing list
+###########################################################################################################
+
+squares = []
+for i in range(1, 11):
+    squares.append(i * i)
+print(squares)  # Output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+# Reduces lines of code above into one line
+squares = [i * i for i in range(1, 11)]
+print(squares)  # Output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+students = [100, 90, 80, 70, 60, 50, 40, 30, 0]
+# passed_students = list(filter(lambda x: x >= 60, students))
+# passed_students = [i for i in students if i >= 60]
+# Is easier to read than lamba
+passed_students = [i if i >= 60 else "Failed" for i in students]
+# Output: [100, 90, 80, 70, 60, 'Failed', 'Failed', 'Failed', 'Failed']
+print(passed_students)
+
+
+# dictionaries comprehension = used to store data values in key:value pairs
+#               can replace for loops and certain lambda functions
+#########################################################################################################################
+
+cities_in_F = {"New York": 32, "Boston": 25,
+               "Los Angeles": 75, "Chicago": 28, "Miami": 85}
+cities_in_C = {key: round((value - 32) * 5/9)
+               for (key, value) in cities_in_F.items()}
+# Output: {'New York': 0, 'Boston': -4, 'Los Angeles': 24, 'Chicago': -2, 'Miami': 29}
+print(cities_in_C)
+
+weather = {"New York": "snowing", "Boston": "sunny",
+           "Los Angeles": "sunny", "Chicago": "cloudy", "Miami": "rain"}
+sunny_cities = {key: value for (
+    key, value) in weather.items() if value == "sunny"}
+print(sunny_cities)  # Output: {'Boston': 'sunny', 'Los Angeles': 'sunny'}
+
+
+def check_temp(value):
+    if value >= 70:
+        return "HOT"
+    elif 69 >= value >= 40:
+        return "WARM"
+    else:
+        return "COLD"
+
+
+desc_cities = {key: ("HOT" if value >= 70 else "WARM" if value >=
+                     40 else "COLD") for (key, value) in cities_in_F.items()}

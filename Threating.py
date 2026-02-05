@@ -91,16 +91,17 @@ def counter(num):
 
 def main():
 
-    a = Process(target=counter, args=(500000000000,))
+    # each process will count to 250 billion, makes use of multiple CPU cores making it faster
+    a = Process(target=counter, args=(250000000000,))
     a.start()
 
-    c = Process(target=counter, args=(500000000000,))
+    c = Process(target=counter, args=(250000000000,))
     c.start()
 
-    d = Process(target=counter, args=(500000000000,))
+    d = Process(target=counter, args=(250000000000,))
     d.start()
 
-    b = Process(target=counter, args=(500000000000,))
+    b = Process(target=counter, args=(250000000000,))
     b.start()
 
     a.join()
@@ -109,6 +110,10 @@ def main():
     d.join()
 
     print("Finished in:", time.perf_counter(), "seconds")
+
+# more processors can handle more processes at once
+    print("Number of CPU cores:", cpu_count())
+# but there is overhead with managing multiple processes so too many can slow down performance
 
 
 if __name__ == "__main__":
